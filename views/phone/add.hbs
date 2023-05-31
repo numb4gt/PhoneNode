@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        {{> head}}
+</head>
+<body>
+    {{> contacts}}
+
+    <form method="post" action="/phone/add">
+        <input type="text" placeholder="name" value="name" name="name"/></br>
+        <input type="phone" placeholder="phone" value="phone" name="phone"/></br>
+        <input type="submit" value="Добавить">
+    </form>
+    {{calncelButton}}
+
+</body>
+</html>

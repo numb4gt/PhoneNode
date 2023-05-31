@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {{> head}}
+</head>
+<body>
+    {{!-- <ul>
+        <% list.forEach(function(type) { %>
+            <li>
+                <!-- <a href="update?id=<%=type.id%>&name=<%=type.name%>&phone=<%=type.phone%>"><%= type.id%> <%= type.name%> <%= type.phone%></a> -->
+                <button onclick="window.location='http://localhost:3000/phone/update?id=<%=type.id%>&name=<%=type.name%>&phone=<%=type.phone%>';"><%= type.id%> <%= type.name%> <%= type.phone%></button>
+            </li>
+        <% }); %>
+    </ul> --}}
+   {{> contacts}}
+
+
+    <form action="add" method="get">
+        <input type="submit" value="Add"></input>
+    </form>
+</body>
+</html>

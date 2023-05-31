@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {{> head}}
+</head>
+<script>
+   let nameInp;
+   let phoneInp;
+   let i = 0;
+
+function getInp(){
+     console.log("getinp");
+    if(i == 0){
+        nameInp = document.getElementById('name').value;
+        phoneInp = document.getElementById('phone').value;
+        i++;
+    } else {
+        console.log("nameINP" + nameInp);
+    }
+}
+
+function disBtn(){
+    console.log("DISTBTN");
+    console.log("nameInp" + nameInp + "docGet" + document.getElementById('name').value );
+    
+    if(document.getElementById('name').value != nameInp || document.getElementById('phone').value != phoneInp){
+        document.getElementById('del').disabled = true;
+    } else {
+        document.getElementById('del').disabled = false;
+    }
+}
+</script>
+<body>
+    {{#each list}}
+        <button disabled onclick="window.location='https://nodelanhbs.onrender.com/phone/update?id={{id}}&name={{name}}&phone={{phone}}';">{{name}} {{phone}}</button>
+        <br>
+    {{/each}}
+    <form method="post" action="/phone/update" onclick="getInp()">
+        <input type="hidden" placeholder="{{id}}" value="{{id}}" name="id"/><br>
+        <input type="text" placeholder="{{name}}" value="{{name}}" name="name" id="name" onchange="disBtn()"/></br>
+        <input type="phone" placeholder="{{phone}}" value="{{phone}}" name="phone" id="phone" onchange="disBtn()"/></br>
+        <input type="submit" value="Изменить">
+    </form>
+    <form action="/phone/delete" method="post">
+        <input type="hidden" placeholder="{{id}}" value="{{id}}" name="id"/><br>
+        <input type="submit" value="Удалить" id="del"> 
+    </form>
+    {{calncelButton}}
+
+</body>
+</html>
